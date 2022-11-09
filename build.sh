@@ -2,12 +2,12 @@
 set -e
 
 # Specify a folder for targets
-if [[ ! -e "output" ]]; then
+if [ ! -d "output" ]; then
 	mkdir output
 fi
 
 # Build CPC and CPCD
-if [[ ! -e "cpc-daemon" ]]; then
+if [ ! -d "cpc-daemon" ]; then
 	git clone https://github.com/SiliconLabs/cpc-daemon
 fi
 
@@ -15,7 +15,7 @@ cmake -S cpc-daemon -B output
 make -C output
 
 # Build CPC-EZSPD
-if [[ ! -e "silabs-cpc-ezspd" ]]; then
+if [ ! -d "silabs-cpc-ezspd" ]; then
 	git clone https://github.com/agners/silabs-cpc-ezspd
 fi
 
